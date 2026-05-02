@@ -1,0 +1,22 @@
+name: Debug Structure
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: List all files
+        run: |
+          echo "=== Root directory contents ==="
+          ls -la
+          echo ""
+          echo "=== Finding all .py files ==="
+          find . -name "*.py" -type f
+          echo ""
+          echo "=== Finding main.py ==="
+          find . -name "main.py" -type f
